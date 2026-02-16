@@ -12,16 +12,26 @@ function getTgUser() {
 }
 
 function send(data) {
-  fetch(WEBHOOK_URL, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      timestamp: new Date().toISOString(),
-      ...getTgUser(),
-      ...data
-    })
-  }).catch(() => {})
+  const payload = JSON.stringify({
+    timestamp: new Date().toISOString(),
+    ...getTgUser(),
+    ...data
+  })
+
+  // Google Apps Script не поддерживает CORS напрямую,
+  // используем navigator.sendBeacon как основной способ,
+  // fetch как фоллбэк
+  try {
+    const blob = new Blob([payload], { type: 'text/plain' })
+    const sent = navigator.sendBeacon(WEBHOOK_URL, blob)
+    if (!sent) throw new Error('beacon failed')
+  } catch {
+    fetch(WEBHOOK_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: payload
+    }).catch(() => {})
+  }
 }
 
 export function trackStarted() {
