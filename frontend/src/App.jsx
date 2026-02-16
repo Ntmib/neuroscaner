@@ -4,6 +4,7 @@ import QuizPage from './pages/QuizPage'
 import LoadingPage from './pages/LoadingPage'
 import ResultPage from './pages/ResultPage'
 import { calculateScores } from './utils/scoring'
+import { trackStarted, trackCompleted } from './utils/analytics'
 import './styles/app.css'
 
 const tg = window.Telegram?.WebApp
@@ -33,7 +34,10 @@ export default function App() {
     }
   }, [])
 
-  const handleStartQuiz = () => setScreen('quiz')
+  const handleStartQuiz = () => {
+    trackStarted()
+    setScreen('quiz')
+  }
 
   const handleQuizComplete = (answers) => {
     setScreen('loading')
@@ -42,6 +46,7 @@ export default function App() {
     setTimeout(() => {
       setResult(scores)
       localStorage.setItem('neuroScanResult', JSON.stringify(scores))
+      trackCompleted(scores)
       setScreen('result')
     }, 4000)
   }
