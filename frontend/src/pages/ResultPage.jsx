@@ -89,22 +89,45 @@ export default function ResultPage({ result, onRetake }) {
           {leaderProf.traits.map((t, i) => <li key={i}>— {t}</li>)}
         </ul>
 
+        {/* Какой ты будешь */}
+        <div className="result-cool">
+          <p>{leaderProf.coolFactor}</p>
+        </div>
+
         <div className="result-section">
-          <h3>За что платят в этой роли:</h3>
+          <h3>💼 За что тебе будут платить:</h3>
           <ul>
             {leaderProf.payFor.map((t, i) => <li key={i}>— {t}</li>)}
           </ul>
         </div>
 
         <div className="result-section">
-          <h3>Как можно зарабатывать:</h3>
+          <h3>⚡ Как ты сможешь зарабатывать:</h3>
           <ul>
             {leaderProf.howToEarn.map((t, i) => <li key={i}>— {t}</li>)}
           </ul>
         </div>
 
-        <div className="result-income">
-          <span>💰 Потенциал дохода:</span> {leaderProf.income}
+        {/* Доход — лесенка роста */}
+        <div className="result-income-breakdown">
+          <h3>💰 Твой потенциал дохода:</h3>
+          <div className="income-steps">
+            <div className="income-step">
+              <span className="income-step-label">За проект</span>
+              <span className="income-step-value">{leaderProf.incomeProject}</span>
+            </div>
+            <div className="income-step income-step-medium">
+              <span className="income-step-label">В месяц</span>
+              <span className="income-step-value">{leaderProf.incomeMonth}</span>
+            </div>
+            <div className="income-step income-step-big">
+              <span className="income-step-label">В год</span>
+              <span className="income-step-value">{leaderProf.incomeYear}</span>
+            </div>
+          </div>
+          <p className="income-disclaimer">
+            * Все цифры — реальный потенциал при пошаговой системе и твоих активных действиях. Результат зависит от тебя.
+          </p>
         </div>
       </div>
 
@@ -155,13 +178,13 @@ export default function ResultPage({ result, onRetake }) {
         </p>
         <ul className="result-cta-list">
           <li>— глубоко разберём каждую роль</li>
-          <li>— покажем пошаговую модель входа</li>
+          <li>— покажем тебе пошаговую модель входа</li>
           <li>— расскажем, где искать клиентов</li>
           <li>— дадим стратегию масштабирования</li>
         </ul>
         <p className="result-cta-hook">
           Сканер показал тебе направление.<br/>
-          На Нейроконцентрате мы соберём систему.
+          На Нейроконцентрате мы соберём твою систему.
         </p>
         <a
           className="result-cta-btn"

@@ -1,4 +1,4 @@
-const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxrydpRm3hJFXagzAGcSqr75mVcwlMLEFtjG9uaDDHEhDQvu9_NvgoT0nFMVbL34HaX/exec'
+const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxlaeovjVeeSmgoCoH0zOwy35jus32UN1ikP-VKs2hLWFtzazh7dFu9wfWhO-6mfgll/exec'
 
 const tg = window.Telegram?.WebApp
 

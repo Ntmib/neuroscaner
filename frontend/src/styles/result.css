@@ -161,14 +161,87 @@
   padding: 2px 0;
 }
 
-.result-income {
-  font-size: 15px;
+/* Cool factor */
+.result-cool {
+  background: rgba(124, 92, 252, 0.08);
+  border-left: 2px solid rgba(124, 92, 252, 0.4);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
+
+.result-cool p {
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* Income breakdown */
+.result-income-breakdown {
+  margin-top: 8px;
+}
+
+.result-income-breakdown h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.income-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.income-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: rgba(124, 92, 252, 0.06);
+  border-radius: var(--radius-sm);
+  border-left: 2px solid rgba(124, 92, 252, 0.2);
+}
+
+.income-step-medium {
+  background: rgba(124, 92, 252, 0.1);
+  border-left-color: rgba(124, 92, 252, 0.4);
+}
+
+.income-step-big {
+  background: rgba(124, 92, 252, 0.15);
+  border-left-color: rgba(124, 92, 252, 0.6);
+}
+
+.income-step-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 72px;
+  flex-shrink: 0;
+}
+
+.income-step-value {
+  font-size: 14px;
   font-weight: 600;
   color: var(--text-primary);
-  padding: 12px 16px;
-  background: rgba(124, 92, 252, 0.1);
-  border-radius: var(--radius-sm);
-  margin-top: 8px;
+}
+
+.income-step-big .income-step-value {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.income-disclaimer {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 10px;
+  line-height: 1.5;
+  font-style: italic;
 }
 
 /* Entry level */
