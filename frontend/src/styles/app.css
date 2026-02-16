@@ -1,0 +1,13 @@
+.app {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.app-content {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
